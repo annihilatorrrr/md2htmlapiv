@@ -1,4 +1,4 @@
-package md2htmlapi
+package main
 
 import (
 	"fmt"
