@@ -48,6 +48,7 @@ func main() {
     port := os.Getenv("PORT")
     p := fmt.Sprintf(":%s", port)
     // serve it
+    fmt.Println("API Link:" os.Getenv("LINK"))
     fmt.Println("Server at", port)
     log.Fatal(http.ListenAndServe(p, router))
 }
