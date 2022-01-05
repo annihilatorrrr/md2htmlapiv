@@ -14,7 +14,7 @@ Getting one button:
 > For more than one use for loop
 ```
 import requests as r
-e = r.post("https://md2htmlapi/md2htmlbv2/", data={"rtext": m.reply_to_message.text.markdown})
+e = r.post("https://https://md2htmlapi.herokuapp.com/md2htmlbv2/", data={"rtext": m.reply_to_message.text.markdown})
 J = list((e.json().get("button").replace("[", "").replace("]", "").replace("{", "").replace("}", "")).split(" "))
 print(J[len(J) - 1:][0]) # button same_line
 print(J[len(J) - 2:][0]) # button link
