@@ -10,8 +10,8 @@ import requests as r
 e = r.post("https://md2htmlapi.herokuapp.com/md2htmlbv2/", data={"rtext": "some text from user"})
 print(e.json())
 ```
-Getting one button*:
-* For more than one use for loop
+Getting one button:
+> For more than one use for loop
 ```
 import requests as r
 e = r.post("https://md2htmlapi/md2htmlbv2/", data={"rtext": m.reply_to_message.text.markdown})
@@ -22,6 +22,8 @@ K = J[:-2]
 print(" ".join([K[s] for s, b in enumerate(K)])) # button text
 ```
 # Credits:
-[Divkix](https://github.com/Divkix) # Getting formatting.
-[AmarnathCJD](https://github.com/AmarnathCJD) # Every push-ups to fix.
-[Anony](https://github.com/anonyindian) # The idea giver and the what to do and how?
+[Divkix](https://github.com/Divkix); Formatting fixer.
+
+[AmarnathCJD](https://github.com/AmarnathCJD); Every push-ups to fix issues.
+
+[Anony](https://github.com/anonyindian); The idea giver and what to do and how?
