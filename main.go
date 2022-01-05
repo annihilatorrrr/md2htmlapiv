@@ -11,7 +11,6 @@ import (
 
 type Frameit struct {
       Type string `json:"type"`
-      Info string `json:"info"`
       Button string `json:"button"`
       Text string `json:"text"`
 }
@@ -22,7 +21,6 @@ func mdfunc(w http.ResponseWriter, r *http.Request) {
   htmlText, btns := MD2HTMLButtonsV2(r.FormValue("rtext"))
   var formatedtrext = Frameit{
       Type: "success!",
-      Info: "v1; Thanks to @PaulSonOfLars, @AmarnathCJD @Divkix!",
       Button: fmt.Sprintf("%v", btns),
       Text: htmlText,
   }
@@ -31,7 +29,7 @@ func mdfunc(w http.ResponseWriter, r *http.Request) {
 
 
 func homePage(w http.ResponseWriter, r *http.Request){
-    fmt.Fprintf(w, "Welcome! API_V: v1; Thanks to @PaulSonOfLars, @AmarnathCJD @Divkix!")
+    fmt.Fprintf(w, "Welcome! API_V: v1; Thanks to @PaulSonOfLars, @AmarnathCJD @Divkix @anonyindian !")
     fmt.Println("Endpoint Hit: HomePage!")
 }
 
