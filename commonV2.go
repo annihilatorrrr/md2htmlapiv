@@ -1,4 +1,4 @@
-package md2htmlapi
+package main
 
 func findLinkSections(in []rune) (int, int) {
 	var textEnd, linkEnd int
