@@ -1,4 +1,4 @@
-package tg_md2html_test
+package md2htmlapi
 
 import (
 	"testing"
