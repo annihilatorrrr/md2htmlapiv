@@ -1,4 +1,4 @@
-package tg_md2html
+package md2htmlapi
 
 import (
 	"regexp"
