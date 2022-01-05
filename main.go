@@ -46,9 +46,8 @@ func main() {
     // call it
     router.HandleFunc("/md2htmlbv2/", mdfunc).Methods("POST")
     port := os.Getenv("PORT")
-    p := fmt.Sprintf(":%s", port)
     // serve it
-    fmt.Println("API Link:" os.Getenv("LINK"))
+    fmt.Println("API Link:", os.Getenv("LINK"))
     fmt.Println("Server at", port)
-    log.Fatal(http.ListenAndServe(p, router))
+    log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", port), router))
 }
