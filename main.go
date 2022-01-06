@@ -3,10 +3,11 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/gorilla/mux"
 	"log"
 	"net/http"
 	"os"
+
+	"github.com/gorilla/mux"
 )
 
 type Frameit struct {
@@ -26,7 +27,7 @@ func mdfunc(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(formatedtrext)
 }
 
-func homePage(w http.ResponseWriter, r *http.Request) {
+func homePage(w http.ResponseWriter, _ *http.Request) {
 	fmt.Fprintf(w, "Welcome! API_V: v1; Thanks to @PaulSonOfLars, @AmarnathCJD @Divkix @anonyindian !")
 	fmt.Println("Endpoint Hit: HomePage!")
 }
