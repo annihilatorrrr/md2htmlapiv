@@ -140,7 +140,7 @@ func stringIndex(in []rune, s string) int {
 	return -1
 }
 
-func startsWith(i []rune, p []rune) bool {
+func startsWith(i, p []rune) bool {
 	for idx, x := range p {
 		if idx >= len(i) || i[idx] != x {
 			return false
