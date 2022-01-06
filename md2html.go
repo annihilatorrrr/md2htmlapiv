@@ -403,7 +403,7 @@ func (cv *Converter) stripHTML(r []rune) string {
 	return out.String()
 }
 
-func EscapeMarkdown(r []rune, toEscape []rune) string {
+func EscapeMarkdown(r, toEscape []rune) string {
 	out := strings.Builder{}
 	for i, x := range r {
 		if contains(x, toEscape) {
