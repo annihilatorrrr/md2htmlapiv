@@ -268,7 +268,7 @@ func (cv *Converter) md2html(input []rune, buttons bool) (string, []Button) {
 
 // NOTE: If this gets edited, make sure to edit the strip() method too
 // TODO: this needs to return string, error to handle bad parsing
-func (cv *Converter) reverse(r []rune, buttons []Button) string {
+func (*Converter) reverse(r []rune, buttons []Button) string {
 	prev := 0
 	out := strings.Builder{}
 	for i := 0; i < len(r); i++ {
@@ -349,7 +349,7 @@ func (cv *Converter) reverse(r []rune, buttons []Button) string {
 	return out.String()
 }
 
-func (cv *Converter) stripHTML(r []rune) string {
+func (*Converter) stripHTML(r []rune) string {
 	prev := 0
 	out := strings.Builder{}
 	for i := 0; i < len(r); i++ {

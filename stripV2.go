@@ -22,7 +22,7 @@ func (cv *ConverterV2) StripHTMLV2(s string) string {
 	return cv.stripHTML([]rune(s))
 }
 
-func (cv *ConverterV2) stripHTML(in []rune) string {
+func (*ConverterV2) stripHTML(in []rune) string {
 	out := strings.Builder{}
 	for i := 0; i < len(in); i++ {
 		switch in[i] {
