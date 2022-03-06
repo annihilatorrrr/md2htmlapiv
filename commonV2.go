@@ -115,12 +115,12 @@ func getClosingTag(in []rune, tag string) (int, int) {
 			return -1, -1
 		}
 
-		close := open + 2 + c
-		if string(in[open+1:close]) == tag { // found a nested tag, this is annoying
+		i := open + 2 + c
+		if string(in[open+1:i]) == tag { // found a nested tag, this is annoying
 			subtags++
-		} else if isClosingTag(in, open) && string(in[open+2:close]) == tag {
+		} else if isClosingTag(in, open) && string(in[open+2:i]) == tag {
 			if subtags == 0 {
-				return open, close
+				return open, i
 			}
 			subtags--
 		}

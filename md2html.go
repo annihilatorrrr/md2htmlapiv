@@ -139,7 +139,7 @@ func (cv *Converter) md2html(input []rune, buttons bool) (string, []Button) {
 
 			bkp := map[rune][]int{}
 			cnt := i // copy i to avoid changing if false
-			// skip i to next same char (hence jumping all inbetween) (could be done with a normal range and continues?)
+			// skip i to next same char (hence jumping all in between) (could be done with a normal range and continues?)
 			// todo: OOB check on +1?
 			for _, val := range containedMDChars[cnt+1:] {
 				cnt++

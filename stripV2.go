@@ -27,13 +27,13 @@ func (cv *ConverterV2) stripHTML(in []rune) string {
 	for i := 0; i < len(in); i++ {
 		switch in[i] {
 		case '<':
-			close := getTagClose(in[i+1:])
-			if close < 0 {
+			tagClose := getTagClose(in[i+1:])
+			if tagClose < 0 {
 				// gone weird; just skip.
 				continue
 			}
 
-			i += close + 1 // skip to closing tag.
+			i += tagClose + 1 // skip to closing tag.
 			continue
 
 		default:
