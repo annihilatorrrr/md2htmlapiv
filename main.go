@@ -19,7 +19,7 @@ type Frameit struct {
 func mdfunc(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Endpoint main Triggred! Recived:", r.FormValue("rtext"))
 	htmlText, btns := MD2HTMLButtonsV2(r.FormValue("rtext"))
-	var formatedtrext = Frameit{
+	formatedtrext := Frameit{
 		Type:   "success!",
 		Button: fmt.Sprintf("%v", btns),
 		Text:   htmlText,
@@ -34,7 +34,6 @@ func homePage(w http.ResponseWriter, _ *http.Request) {
 
 // Main function
 func main() {
-
 	// Init the mux router
 	router := mux.NewRouter().StrictSlash(true)
 

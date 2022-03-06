@@ -14,8 +14,10 @@ var tagHTML = map[rune]string{
 
 var allMdChars = []rune{'_', '*', '`', '[', ']', '(', ')', '\\'}
 
-const btnPrefix = "buttonurl:"
-const sameLineSuffix = ":same"
+const (
+	btnPrefix      = "buttonurl:"
+	sameLineSuffix = ":same"
+)
 
 var defaultConverter = Converter{
 	BtnPrefix:      btnPrefix,
@@ -420,7 +422,7 @@ func EscapeMarkdown(r, toEscape []rune) string {
 func underlinePos(s []rune, ps ...int) {
 	fmt.Println(string(s))
 
-	for idx, _ := range s {
+	for idx := range s {
 		if containsInt(idx, ps) {
 			fmt.Print("^")
 		} else {
