@@ -17,7 +17,7 @@ type Frameit struct {
 }
 
 func mdfunc(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("Endpoint main Triggred! Recived:", r.FormValue("rtext"))
+	log.Println("Endpoint main Triggred! Recived:", r.FormValue("rtext"))
 	htmlText, btns := MD2HTMLButtonsV2(r.FormValue("rtext"))
 	formatedtrext := Frameit{
 		Type:   "success!",
@@ -29,7 +29,7 @@ func mdfunc(w http.ResponseWriter, r *http.Request) {
 
 func homePage(w http.ResponseWriter, _ *http.Request) {
 	fmt.Fprintf(w, "Welcome! API_V: v1; Thanks to @PaulSonOfLars, @AmarnathCJD @Divkix @anonyindian !")
-	fmt.Println("Endpoint Hit: HomePage!")
+	log.Println("Endpoint Hit: HomePage!")
 }
 
 // Main function
@@ -44,7 +44,7 @@ func main() {
 	router.HandleFunc("/md2htmlbv2/", mdfunc).Methods("POST")
 	port := os.Getenv("PORT")
 	// serve it
-	fmt.Println("API Link:", os.Getenv("LINK"))
-	fmt.Println("Server at", port)
+	log.Println("API Link:", os.Getenv("LINK"))
+	log.Println("Server at", port)
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", port), router))
 }
