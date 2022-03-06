@@ -33,7 +33,6 @@ func findLinkSections(in []rune) (int, int) {
 		offset = linkEnd + 1
 	}
 	return -1, -1
-
 }
 
 func getValidEnd(in []rune, s string) int {
