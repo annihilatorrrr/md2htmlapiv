@@ -6,6 +6,8 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"runtime"
+	"runtime/debug"
 
 	"github.com/gorilla/mux"
 )
@@ -40,6 +42,7 @@ func homePage(w http.ResponseWriter, _ *http.Request) {
 
 // Main function
 func main() {
+	debug.SetGCPercent(3)
 	// Init the mux router
 	router := mux.NewRouter().StrictSlash(true)
 
@@ -50,5 +53,7 @@ func main() {
 	// serve it
 	log.Println("API Link:", os.Getenv("LINK"))
 	log.Println("Server at", port)
+	runtime.GC()
+	debug.FreeOSMemory()
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", port), router))
 }
