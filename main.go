@@ -20,7 +20,7 @@ type Frameit struct {
 }
 
 func mdfunc(w http.ResponseWriter, r *http.Request) {
-	log.Println("Endpoint main Triggered! Received:", r.FormValue("rtext"))
+	log.Println("Endpoint main Triggered!")
 	htmlText, btns := MD2HTMLButtonsV2(r.FormValue("rtext"))
 	formatedtrext := Frameit{
 		Type:   "success!",
@@ -31,6 +31,8 @@ func mdfunc(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Println(err.Error())
 	}
+	runtime.GC()
+	debug.FreeOSMemory()
 }
 
 func homePage(w http.ResponseWriter, _ *http.Request) {
@@ -39,6 +41,8 @@ func homePage(w http.ResponseWriter, _ *http.Request) {
 		log.Println(err.Error())
 	}
 	log.Println("Endpoint Hit: HomePage!")
+	runtime.GC()
+	debug.FreeOSMemory()
 }
 
 // Main function
@@ -60,6 +64,7 @@ func main() {
 	// Route handles & endpoints
 	router.HandleFunc("/", homePage)
 	router.HandleFunc("/md2htmlbv2/", mdfunc).Methods("POST")
+	log.Println("Started Api!")
 	runtime.GC()
 	debug.FreeOSMemory()
 	log.Fatal(server.ListenAndServe())
