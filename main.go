@@ -59,7 +59,7 @@ func main() {
 		Handler:      router,
 		ReadTimeout:  5 * time.Second,
 		WriteTimeout: 3 * time.Second,
-		IdleTimeout:  7 * time.Second,
+		IdleTimeout:  6 * time.Second,
 	}
 	// Route handles & endpoints
 	router.HandleFunc("/", homePage)
