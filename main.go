@@ -45,9 +45,9 @@ func main() {
 	router := mux.NewRouter().StrictSlash(true)
 	port := os.Getenv("PORT")
 	// serve it
-        if port == "" {
-           port = "80"
-        }
+	if port == "" {
+		port = "80"
+	}
 	server := &http.Server{
 		Addr:         "0.0.0.0:" + port,
 		Handler:      router,
