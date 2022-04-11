@@ -45,8 +45,9 @@ func main() {
 	router := mux.NewRouter().StrictSlash(true)
 	port := os.Getenv("PORT")
 	// serve it
-	log.Println("API Link:", os.Getenv("LINK"))
-	log.Println("Server at", port)
+        if port == "" {
+           port = "80"
+        }
 	server := &http.Server{
 		Addr:         "0.0.0.0:" + port,
 		Handler:      router,
@@ -57,6 +58,6 @@ func main() {
 	// Route handles & endpoints
 	router.HandleFunc("/", homePage)
 	router.HandleFunc("/md2htmlbv2/", mdfunc).Methods("POST")
-	log.Print("Started Api!")
+	log.Printf("Started Api at %s !", os.Getenv("LINK"))
 	log.Fatal(server.ListenAndServe())
 }
