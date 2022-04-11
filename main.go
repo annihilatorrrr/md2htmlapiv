@@ -6,8 +6,6 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"runtime"
-	"runtime/debug"
 	"time"
 
 	"github.com/gorilla/mux"
@@ -20,7 +18,7 @@ type Frameit struct {
 }
 
 func mdfunc(w http.ResponseWriter, r *http.Request) {
-	log.Println("Endpoint main Triggered!")
+	log.Print("Endpoint main Triggered!")
 	htmlText, btns := MD2HTMLButtonsV2(r.FormValue("rtext"))
 	formatedtrext := Frameit{
 		Type:   "success!",
@@ -29,25 +27,20 @@ func mdfunc(w http.ResponseWriter, r *http.Request) {
 	}
 	err := json.NewEncoder(w).Encode(formatedtrext)
 	if err != nil {
-		log.Println(err.Error())
+		log.Print(err.Error())
 	}
-	runtime.GC()
-	debug.FreeOSMemory()
 }
 
 func homePage(w http.ResponseWriter, _ *http.Request) {
-	_, err := fmt.Fprintf(w, "Welcome! API_V: v1; Thanks to @PaulSonOfLars, @AmarnathCJD @Divkix @anonyindian !")
+	_, err := fmt.Fprint(w, "Welcome! API_V: v1; Thanks to @PaulSonOfLars, @AmarnathCJD @Divkix @anonyindian !")
 	if err != nil {
 		log.Println(err.Error())
 	}
-	log.Println("Endpoint Hit: HomePage!")
-	runtime.GC()
-	debug.FreeOSMemory()
+	log.Print("Endpoint Hit: HomePage!")
 }
 
 // Main function
 func main() {
-	debug.SetGCPercent(3)
 	// Init the mux router
 	router := mux.NewRouter().StrictSlash(true)
 	port := os.Getenv("PORT")
@@ -64,8 +57,6 @@ func main() {
 	// Route handles & endpoints
 	router.HandleFunc("/", homePage)
 	router.HandleFunc("/md2htmlbv2/", mdfunc).Methods("POST")
-	log.Println("Started Api!")
-	runtime.GC()
-	debug.FreeOSMemory()
+	log.Print("Started Api!")
 	log.Fatal(server.ListenAndServe())
 }
