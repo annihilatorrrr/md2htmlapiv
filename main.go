@@ -48,7 +48,6 @@ func main() {
 	if port == "" {
 		port = "80"
 	}
-	http.DefaultClient.Timeout = 7 * time.Second
 	server := &http.Server{
 		Addr:         "0.0.0.0:" + port,
 		Handler:      router,
