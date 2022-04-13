@@ -1,4 +1,4 @@
-FROM golang:1.18.0-alpine3.15
+FROM golang:1.18.1-alpine3.15
 WORKDIR /md2htmlapiv
 COPY . .
 RUN go build -ldflags="-w -s" .
