@@ -1,5 +1,5 @@
 *.md
-LISENCE
+LICENCE
 *.toml
 .github
 .dockerignore
