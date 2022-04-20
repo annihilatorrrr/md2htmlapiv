@@ -3,7 +3,6 @@ WORKDIR /md2htmlapiv
 COPY . .
 RUN go build -ldflags="-w -s" .
 RUN rm -rf *.go && rm -rf go.*
-RUN ls md2htmlapi
 FROM alpine:latest
 COPY --from=builder /md2htmlapiv/md2htmlapi /md2htmlapiv
 ENTRYPOINT ["/md2htmlapiv"]
