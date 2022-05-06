@@ -21,7 +21,7 @@ print(J[len(J) - 2:][0]) # button link
 K = J[:-2]
 print(" ".join([K[s] for s, b in enumerate(K)])) # button text
 ```
-[![DeepSource](https://deepsource.io/gh/annihilatorrrr/md2htmlapiv.svg/?label=active+issues&show_trend=true&token=pZls3UEqB7kl7zifQ3UllZs4)](https://deepsource.io/gh/annihilatorrrr/md2htmlapiv/?ref=repository-badge)
+[![DeepSource](https://deepsource.io/gh/annihilatorrrr/md2htmlapiv.svg/?label=active+issues&show_trend=true&token=bkO4NXDBYGKNjgh-gC7RQ0ah)](https://deepsource.io/gh/annihilatorrrr/md2htmlapiv/?ref=repository-badge)
 # Credits:
 [Divkix](https://github.com/Divkix); Formatting fixer.
 
